@@ -20,14 +20,20 @@ import app.model.BeanEstante;
 import app.model.BeanLibro;
 import app.model.BeanPrestamo;
 import app.model.BeanUsuario;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javax.print.attribute.Size2DSyntax.MM;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -69,7 +75,6 @@ public class Prestamo extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String irA = "/IndexUsuario.jsp";
@@ -117,12 +122,25 @@ public class Prestamo extends HttpServlet {
         String fecha_salida = request.getParameter("txtFechaSalida");
         String fecha_entrega = request.getParameter("txtFechaEntrega");
 
+        SimpleDateFormat formatter = new SimpleDateFormat("MMM dd, yyyy");
+	String dateInString = fecha_salida;		
+
+	try {
+
+		Date date = (Date) formatter.parse(dateInString);
+		          System.out.println(date);
+
+	} catch (ParseException e) {
+		e.printStackTrace();
+	}
+      
+
         idUser = Integer.parseInt(user);
         idEjemplar = Integer.parseInt(ejemplar);
 
         DaoEjemplar daoEjemplar = new DaoEjemplar(con);
         BeanEjemplar beanEjemplar = new BeanEjemplar();
-        beanEjemplar = daoEjemplar.get(idUser);
+        beanEjemplar = daoEjemplar.get(idEjemplar);
 
         DaoUsuario daoUser = new DaoUsuario(con);
         BeanUsuario beanUsuario = new BeanUsuario();
@@ -247,7 +265,6 @@ public class Prestamo extends HttpServlet {
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-
     /**
      * Handles the HTTP <code>GET</code> method.
      *

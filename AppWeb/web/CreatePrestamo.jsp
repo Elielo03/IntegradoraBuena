@@ -60,7 +60,7 @@
                             <select id="cmbUsuario" class="form-control" name="cmbUsuario">
                                 <c:forEach items="${usuario}" var="elem">
 
-                                    <option value="${elem.nombre} ${elem.primer_apellido} ${elem.segundo_apellido}"><c:out value="${elem.nombre} ${elem.primer_apellido} ${elem.segundo_apellido}" /></option>
+                                    <option value="${elem.id_usuario} "><c:out value="${elem.nombre} ${elem.primer_apellido} ${elem.segundo_apellido}" /></option>
 
                                 </c:forEach>
                             </select>
@@ -77,7 +77,7 @@
                         <div class="col-md-4">
                             <select class="form-control" name="cmbEjemplar" requiered="">
                                 <c:forEach items="${ejemplar}" var="elem">
-                                    <option value="${elem.libro.titulo}"> <c:out value="${elem.libro.titulo}" /> </option>
+                                    <option value="${elem.id_ejemplar}"> <c:out value="${elem.libro.titulo}" /> </option>
                                 </c:forEach>
                             </select>
 
