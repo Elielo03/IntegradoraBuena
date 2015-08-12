@@ -383,6 +383,7 @@ private BeanLibro consultaLibro;
            lib.setEditorial(beanEditorial);
            lib.setArea(beanarea);
            lib.setAutores(agregar);
+           lib.setId_libro(consultaLibro.getId_libro());
             
          
            if(daoUsuario.update(lib)){

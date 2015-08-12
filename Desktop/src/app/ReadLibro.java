@@ -66,9 +66,9 @@ public class ReadLibro extends javax.swing.JFrame {
                     = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(),
                         bean.getArea().getNombre(), bean.getEditorial().getNombre(), autores};
             modelo.addRow(arreglo);
-
+ tblLibros.setModel(modelo);
         }
-        tblLibros.setModel(modelo);
+       
     }
 
     public void busqueda(String bus) {
@@ -84,8 +84,8 @@ public class ReadLibro extends javax.swing.JFrame {
                 autores += aut.getNombre() + " " + aut.getPrimer_apellido()+", ";
             }
                 if (bean.getTitulo().toLowerCase().contains(bus.toLowerCase())) {
-                    Object[] arreglo = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(), bean.getArea(),
-                        bean.getEditorial(),autores};
+                    Object[] arreglo = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(), bean.getArea().getNombre(),
+                        bean.getEditorial().getNombre(),autores};
                     modelo.addRow(arreglo);
                 }
 
