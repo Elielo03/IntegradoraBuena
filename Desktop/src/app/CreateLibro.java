@@ -82,14 +82,6 @@ Comprobacion com = new Comprobacion();
             cmbAutor.addItem(list.getNombre());
         }
         
-        estantes= daoEstante.getAll();
-        for (BeanEstante list : estantes){
-            cmbEstante.addItem(list.getId_estante());
-        }
-    
-    
-       
-        
         setLocationRelativeTo(null);
         
         pack();
@@ -124,13 +116,8 @@ Comprobacion com = new Comprobacion();
         btnAgregarAutor = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         listAut = new javax.swing.JList();
-        jLabel8 = new javax.swing.JLabel();
-        txtEjemplar = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        cmbEstante = new javax.swing.JComboBox();
         btnArea = new javax.swing.JButton();
         btnEditorial = new javax.swing.JButton();
-        btnEstante = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
 
@@ -194,34 +181,17 @@ Comprobacion com = new Comprobacion();
 
         jScrollPane2.setViewportView(listAut);
 
-        jLabel8.setText("N. Ejemplares");
-
-        txtEjemplar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtEjemplarKeyTyped(evt);
-            }
-        });
-
-        jLabel9.setText("Estante");
-
-        btnArea.setText("Agregar");
+        btnArea.setText("+");
         btnArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAreaActionPerformed(evt);
             }
         });
 
-        btnEditorial.setText("Agregar");
+        btnEditorial.setText("+");
         btnEditorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditorialActionPerformed(evt);
-            }
-        });
-
-        btnEstante.setText("Agregar");
-        btnEstante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstanteActionPerformed(evt);
             }
         });
 
@@ -265,19 +235,10 @@ Comprobacion com = new Comprobacion();
                                 .addGap(32, 32, 32))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
                             .addComponent(jLabel1)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(cmbEstante, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEstante))
-                            .addComponent(txtEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -298,16 +259,7 @@ Comprobacion com = new Comprobacion();
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPaginas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtEjemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(cmbEstante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEstante))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(cmbArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -362,8 +314,8 @@ Comprobacion com = new Comprobacion();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancelar)
                     .addComponent(btnAgregar))
@@ -391,18 +343,10 @@ Comprobacion com = new Comprobacion();
          BeanEjemplar ejem = new BeanEjemplar();
          DaoEjemplar Daoejem = new DaoEjemplar(conexion);
         
-         BeanEstante estan = new BeanEstante();
-         DaoEstante DaoEst = new DaoEstante(conexion);
-        
+         
         String titulo=txtTitulo.getText();
         String ISBN=(txtISBN.getText());
-        int paginas= Integer.parseInt(txtPaginas.getText());
-        int ejemplares = Integer.parseInt(txtEjemplar.getText());
-        int id_libro = Daoejem.idmax();
-        int id_estante = Integer.parseInt(cmbEstante.getSelectedItem().toString());
-        
-        libro=daoLibro.get(id_libro);
-        
+        int paginas= Integer.parseInt(txtPaginas.getText());        
         
         
        beanarea=daoArea.findByNombre(cmbArea.getSelectedItem().toString());
@@ -427,8 +371,6 @@ Comprobacion com = new Comprobacion();
            
           BeanLibro lib= new BeanLibro();
           BeanEjemplar eje = new BeanEjemplar();
-           eje.setLibro(libro);
-           eje.setEstante(estan);
            lib.setTitulo(titulo);
            lib.setISBN(Long.parseLong(ISBN));
            lib.setPaginas(paginas);
@@ -437,7 +379,7 @@ Comprobacion com = new Comprobacion();
            lib.setAutores(agregar);
             
          
-           if(dao.add(lib) && Daoejem.addLib(eje, ejemplares)){
+           if(dao.add(lib)){
            JOptionPane.showMessageDialog(rootPane, "Registro guardado con exito :)");
            this.dispose();
        }else{
@@ -493,10 +435,6 @@ Comprobacion com = new Comprobacion();
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbAreaActionPerformed
 
-    private void btnEstanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstanteActionPerformed
-       new CreateEstante().setVisible(true);
-    }//GEN-LAST:event_btnEstanteActionPerformed
-
     private void btnAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAreaActionPerformed
         new CreateArea().setVisible(true);
     }//GEN-LAST:event_btnAreaActionPerformed
@@ -506,11 +444,7 @@ Comprobacion com = new Comprobacion();
     }//GEN-LAST:event_btnEditorialActionPerformed
 
     private void txtEjemplarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEjemplarKeyTyped
-        com.numeros(evt);
-        int CreateLibro = 4;
-           if ( txtEjemplar.getText().length()>=CreateLibro){
-             evt.consume(); 
-    }
+
     }//GEN-LAST:event_txtEjemplarKeyTyped
     
     /**
@@ -561,11 +495,9 @@ Comprobacion com = new Comprobacion();
     private javax.swing.JButton btnArea;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditorial;
-    private javax.swing.JButton btnEstante;
     private javax.swing.JComboBox cmbArea;
     private javax.swing.JComboBox cmbAutor;
     private javax.swing.JComboBox cmbEditorial;
-    private javax.swing.JComboBox cmbEstante;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -573,12 +505,9 @@ Comprobacion com = new Comprobacion();
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList listAut;
-    private javax.swing.JTextField txtEjemplar;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtPaginas;
     private javax.swing.JTextField txtTitulo;
