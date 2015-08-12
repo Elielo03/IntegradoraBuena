@@ -51,7 +51,7 @@ public class ReadLibro extends javax.swing.JFrame {
     private void actualizarTabla() {
         daoLibro = new DaoLibro(con);
         daoAutor = new DaoAutor(con);
-
+        
         List<BeanLibro> lista = daoLibro.getAll();
 
         for (BeanLibro bean : lista) {
@@ -59,16 +59,12 @@ public class ReadLibro extends javax.swing.JFrame {
             for (BeanAutor aut : bean.getAutores()) {
                 autores += aut.getNombre() + " " + aut.getPrimer_apellido()+", ";
             }
-            
-            modelo = new DefaultTableModel(new String[]{"id_libro", "titulo", "ISBN", "Paginas", "Area", "Editorial", "Autores"}, 0);
-
-            Object[] arreglo
-                    = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(),
+            modelo = new DefaultTableModel(new String[]{"id_libro", "titulo", "ISBN", "Paginas", "Área", "Editorial", "Autores"}, 0);
+            Object[] arreglo = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(),
                         bean.getArea().getNombre(), bean.getEditorial().getNombre(), autores};
             modelo.addRow(arreglo);
- tblLibros.setModel(modelo);
         }
-       
+       tblLibros.setModel(modelo);
     }
 
     public void busqueda(String bus) {
@@ -76,7 +72,7 @@ public class ReadLibro extends javax.swing.JFrame {
             actualizarTabla();
         } else {
 
-            modelo = new DefaultTableModel(new String[]{"id_libro", "titulo", "ISBN","Paginas", "Area", "Editorial", "Autores"}, 0);
+            modelo = new DefaultTableModel(new String[]{"id_libro", "titulo", "ISBN","Paginas", "Área", "Editorial", "Autores"}, 0);
             List<BeanLibro> lista = daoLibro.getAll();
             for (BeanLibro bean : lista) {
                  String autores = "";
@@ -84,11 +80,10 @@ public class ReadLibro extends javax.swing.JFrame {
                 autores += aut.getNombre() + " " + aut.getPrimer_apellido()+", ";
             }
                 if (bean.getTitulo().toLowerCase().contains(bus.toLowerCase())) {
-                    Object[] arreglo = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(), bean.getArea().getNombre(),
-                        bean.getEditorial().getNombre(),autores};
+                    Object[] arreglo = {bean.getId_libro(), bean.getTitulo(), bean.getISBN(), bean.getPaginas(), 
+                        bean.getArea().getNombre(), bean.getEditorial().getNombre(),autores};
                     modelo.addRow(arreglo);
                 }
-
             }
         }
         tblLibros.setModel(modelo);
@@ -110,75 +105,69 @@ public class ReadLibro extends javax.swing.JFrame {
         txtBusqueda = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setLayout(null);
 
-        tblLibros.setModel(  modelo = new DefaultTableModel(new String[]{"id_libro", "Titulo","Autor", "ISBN",
-            "Paginas", "id_area", "id_editorial"}, 0));
-tblLibros.addMouseListener(new java.awt.event.MouseAdapter() {
-    public void mouseClicked(java.awt.event.MouseEvent evt) {
-        tblLibrosMouseClicked(evt);
-    }
-    });
-    tblLibros.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyPressed(java.awt.event.KeyEvent evt) {
-            tblLibrosKeyPressed(evt);
-        }
-    });
-    jScrollPane1.setViewportView(tblLibros);
+        tblLibros.setModel(  modelo = new DefaultTableModel(new String[]{"id_libro", "titulo", "ISBN", "Paginas", "Area", "Editorial", "Autores"}, 0));
+        tblLibros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblLibrosMouseClicked(evt);
+            }
+        });
+        tblLibros.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tblLibrosKeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblLibros);
 
-    jPanel1.add(jScrollPane1);
-    jScrollPane1.setBounds(0, 30, 730, 231);
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 30, 730, 231);
 
-    jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-    jLabel1.setText("LISTA LIBROS");
-    jPanel1.add(jLabel1);
-    jLabel1.setBounds(170, 0, 170, 22);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("LISTA LIBROS");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(310, 0, 170, 22);
 
-    txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-        public void keyPressed(java.awt.event.KeyEvent evt) {
-            txtBusquedaKeyPressed(evt);
-        }
-        public void keyReleased(java.awt.event.KeyEvent evt) {
-            txtBusquedaKeyReleased(evt);
-        }
-    });
-    jPanel1.add(txtBusqueda);
-    txtBusqueda.setBounds(130, 270, 230, 20);
+        txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusquedaKeyReleased(evt);
+            }
+        });
+        jPanel1.add(txtBusqueda);
+        txtBusqueda.setBounds(130, 270, 230, 20);
 
-    jButton1.setText("Regresar");
-    jButton1.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            jButton1ActionPerformed(evt);
-        }
-    });
-    jPanel1.add(jButton1);
-    jButton1.setBounds(427, 270, 90, 23);
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(427, 270, 90, 23);
 
-    jLabel3.setText("Buscar");
-    jPanel1.add(jLabel3);
-    jLabel3.setBounds(20, 270, 70, 14);
+        jLabel3.setText("Buscar");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(20, 270, 70, 14);
 
-    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoreadusuario.png"))); // NOI18N
-    jPanel1.add(jLabel2);
-    jLabel2.setBounds(0, 0, 690, 300);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
-    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-    getContentPane().setLayout(layout);
-    layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
-    );
-    layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
-    );
-
-    pack();
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBusquedaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusquedaKeyReleased
@@ -200,7 +189,7 @@ tblLibros.addMouseListener(new java.awt.event.MouseAdapter() {
 
     private void tblLibrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblLibrosMouseClicked
         int id = (int) modelo.getValueAt(tblLibros.getSelectedRow(), 0);
-BeanLibro bean= new BeanLibro();
+        BeanLibro bean= new BeanLibro();
         bean = daoLibro.get(id);
 
         new UpdateLibro(bean).setVisible(true);
@@ -251,7 +240,6 @@ BeanLibro bean= new BeanLibro();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

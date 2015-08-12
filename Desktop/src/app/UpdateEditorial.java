@@ -215,12 +215,12 @@ public class UpdateEditorial extends javax.swing.JFrame {
         
        boolean confirm=dao.updatees(consultaEditorial);
         if(confirm){
-            JOptionPane.showMessageDialog(rootPane, "Usuario modificado con éxito");
+            JOptionPane.showMessageDialog(rootPane, "Editorial modificada con éxito");
             new ReadEditorial().setVisible(true);
             this.dispose();
             
         }else{
-            JOptionPane.showMessageDialog(rootPane, "Error al modificar el usuario");
+            JOptionPane.showMessageDialog(rootPane, "Error al modificar la editorial");
         }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed

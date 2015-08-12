@@ -269,7 +269,7 @@ public class DaoUsuario extends AbstractDao<BeanUsuario> {
             ps.setString(6, bean.getPass());
             ps.setString(7, bean.getDireccion());
             ps.setString(8, bean.getTelefono());
-             ps.setString(9, bean.isAlta()+"");
+            ps.setString(9, bean.isAlta()+"");
            
             if (ps.executeUpdate() == 1) {
 

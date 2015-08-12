@@ -35,7 +35,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         listaArea = new javax.swing.JMenuItem();
         listaAutor = new javax.swing.JMenuItem();
         listaEditorial = new javax.swing.JMenuItem();
-        listaEstante = new javax.swing.JMenuItem();
         listaLibro = new javax.swing.JMenuItem();
         listaUsuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -84,14 +83,6 @@ public class InicioAdmin extends javax.swing.JFrame {
             }
         });
         jMenu8.add(listaEditorial);
-
-        listaEstante.setText("Estante");
-        listaEstante.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaEstanteActionPerformed(evt);
-            }
-        });
-        jMenu8.add(listaEstante);
 
         listaLibro.setText("Libro");
         listaLibro.addActionListener(new java.awt.event.ActionListener() {
@@ -216,10 +207,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         new ReadEditorial().setVisible(true);
     }//GEN-LAST:event_listaEditorialActionPerformed
 
-    private void listaEstanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaEstanteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaEstanteActionPerformed
-
     private void listaLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaLibroActionPerformed
         new ReadLibro().setVisible(true);
     }//GEN-LAST:event_listaLibroActionPerformed
@@ -240,10 +227,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         new CreateEditorial().setVisible(true);
     }//GEN-LAST:event_CrearEditorialActionPerformed
 
-    private void CrearEstanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearEstanteActionPerformed
-        new CreateEstante().setVisible(true);
-    }//GEN-LAST:event_CrearEstanteActionPerformed
-
     private void CrearLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearLibroActionPerformed
         new CreateLibro().setVisible(true);
     }//GEN-LAST:event_CrearLibroActionPerformed
@@ -255,6 +238,10 @@ public class InicioAdmin extends javax.swing.JFrame {
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
         new Estadisticas().setVisible(true);
     }//GEN-LAST:event_jMenu1MouseClicked
+
+    private void CrearEstanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearEstanteActionPerformed
+        new CreateEstante().setVisible(true);
+    }//GEN-LAST:event_CrearEstanteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,7 +293,6 @@ public class InicioAdmin extends javax.swing.JFrame {
     private javax.swing.JMenuItem listaArea;
     private javax.swing.JMenuItem listaAutor;
     private javax.swing.JMenuItem listaEditorial;
-    private javax.swing.JMenuItem listaEstante;
     private javax.swing.JMenuItem listaLibro;
     private javax.swing.JMenuItem listaUsuario;
     private javax.swing.JLabel logo;

@@ -33,14 +33,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaEditorialActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="listaEstante">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Estante"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listaEstanteActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="listaLibro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Libro"/>
