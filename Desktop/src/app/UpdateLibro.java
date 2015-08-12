@@ -57,7 +57,8 @@ private BeanLibro consultaLibro;
     } catch (SQLException ex) {
         Logger.getLogger(UpdateLibro.class.getName()).log(Level.SEVERE, null, ex);
     }
-     initComponents();
+    initComponents();
+     
     daoArea=new DaoArea(conexion);
     daoAutor = new DaoAutor(conexion);
     daoEditorial= new DaoEditorial(conexion);
@@ -74,6 +75,8 @@ private BeanLibro consultaLibro;
         for (BeanAutor list : autores) {
             cmbAutor.addItem(list.getNombre());
         }
+        
+        
     
     
        
@@ -93,8 +96,12 @@ private BeanLibro consultaLibro;
         txtTitulo.setText(consultaLibro.getTitulo());
         txtISBN.setText(""+consultaLibro.getISBN());
         txtPaginas.setText(Integer.toString(consultaLibro.getPaginas()));
-        cmbArea.setSelectedItem(consultaLibro.getArea());
-        cmbEditorial.setSelectedItem(consultaLibro.getEditorial());
+        cmbArea.setSelectedItem(consultaLibro.getArea().getNombre());
+        cmbEditorial.setSelectedItem(consultaLibro.getEditorial().getNombre());
+        for (BeanAutor autor : consultaLibro.getAutores()) {
+            modelo.addElement(autor.getNombre() +" "+autor.getPrimer_apellido());
+        }
+        listAut.setModel(modelo);
     }
     
 
@@ -378,7 +385,7 @@ private BeanLibro consultaLibro;
            lib.setAutores(agregar);
             
          
-           if(daoUsuario.add(lib)){
+           if(daoUsuario.update(lib)){
            JOptionPane.showMessageDialog(rootPane, "Registro guardado con exito :)");
            this.dispose();
            new ReadLibro().setVisible(true);
