@@ -41,7 +41,7 @@ public class Estadisticas extends javax.swing.JFrame {
         try {
             con = ConexionSQLServer.getConnection();
         } catch (SQLException ex) {
-            Logger.getLogger(ReadLibroUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Estadisticas.class.getName()).log(Level.SEVERE, null, ex);
         }
  
        

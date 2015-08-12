@@ -190,14 +190,14 @@ private BeanLibro consultaLibro;
 
         jScrollPane2.setViewportView(listAut);
 
-        btnEditorial.setText("Agregar");
+        btnEditorial.setText("+");
         btnEditorial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditorialActionPerformed(evt);
             }
         });
 
-        btnArea.setText("Agregar");
+        btnArea.setText("+");
         btnArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAreaActionPerformed(evt);
@@ -317,7 +317,7 @@ private BeanLibro consultaLibro;
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

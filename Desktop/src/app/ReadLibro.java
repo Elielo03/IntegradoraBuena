@@ -110,7 +110,6 @@ public class ReadLibro extends javax.swing.JFrame {
         txtBusqueda = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -137,7 +136,7 @@ tblLibros.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
     jLabel1.setText("LISTA LIBROS");
     jPanel1.add(jLabel1);
-    jLabel1.setBounds(170, 0, 170, 22);
+    jLabel1.setBounds(290, 0, 170, 22);
 
     txtBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
         public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -162,10 +161,6 @@ tblLibros.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel3.setText("Buscar");
     jPanel1.add(jLabel3);
     jLabel3.setBounds(20, 270, 70, 14);
-
-    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoreadusuario.png"))); // NOI18N
-    jPanel1.add(jLabel2);
-    jLabel2.setBounds(0, 0, 690, 300);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -251,7 +246,6 @@ BeanLibro bean= new BeanLibro();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
