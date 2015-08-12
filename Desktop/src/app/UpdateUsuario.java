@@ -402,7 +402,7 @@ public class UpdateUsuario extends javax.swing.JFrame {
         boolean confirm = daoUsuario.baja(consultaUsuario.getId_usuario());
         if(confirm){
             JOptionPane.showMessageDialog(rootPane, "Usuario modificado con éxito");
-            new ReadUsuarios().setVisible(true);
+            new ReadArea().setVisible(true);
             this.dispose();
             
         }else{
@@ -413,7 +413,7 @@ public class UpdateUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnborrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-     new ReadUsuarios().setVisible(true);
+     new ReadArea().setVisible(true);
         this.dispose();
      
     }//GEN-LAST:event_btnCancelarActionPerformed
@@ -425,10 +425,13 @@ public class UpdateUsuario extends javax.swing.JFrame {
     private void txtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyTyped
         Comprobacion com = new Comprobacion();
         com.validarLetras(evt);
-            int maximo = 50;
-           if ( txtNombre.getText().length()>maximo){
+            int CreateUsuario = 50;
+           if ( txtNombre.getText().length()>=CreateUsuario){
              evt.consume(); 
     } 
+           if (txtNombre.toString().isEmpty())
+               com.Mayuscula(txtNombre.toString());
+           evt.consume();
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void txtapellido1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellido1KeyTyped

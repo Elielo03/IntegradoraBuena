@@ -103,6 +103,7 @@ public class ReadUsuarios extends javax.swing.JFrame {
         txtBusqueda = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -159,6 +160,10 @@ tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
     jLabel3.setText("Buscar");
     jPanel1.add(jLabel3);
     jLabel3.setBounds(20, 270, 50, 14);
+
+    jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoreadusuario.png"))); // NOI18N
+    jPanel1.add(jLabel2);
+    jLabel2.setBounds(0, 0, 530, 300);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -245,6 +250,7 @@ tblUsuarios.addMouseListener(new java.awt.event.MouseAdapter() {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

@@ -171,6 +171,7 @@ public class DaoLibro extends AbstractDao<BeanLibro> {
 
     @Override
     public boolean update(BeanLibro bean) {
+        JOptionPane.showMessageDialog(null, bean.getId_libro());
         System.out.println(bean.getId_libro());
         String query = "UPDATE Libro SET titulo = ?, "
                 + " ISBN = ?, "
@@ -194,6 +195,7 @@ public class DaoLibro extends AbstractDao<BeanLibro> {
             ps.setInt(6, bean.getId_libro());
             
             if (ps.executeUpdate()== 1) {
+                JOptionPane.showMessageDialog(null, ":D");
                 deleteAutores(bean);
                 addAutores(bean);
                ps.close();
